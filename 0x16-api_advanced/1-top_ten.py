@@ -42,5 +42,3 @@ def top_ten(subreddit):
         print(f"Timeout Error: {errt}")
     except requests.exceptions.RequestException as err:
         print(f"Something went wrong: {err}")
-
-
