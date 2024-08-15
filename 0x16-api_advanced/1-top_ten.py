@@ -32,3 +32,9 @@ def top_ten(subreddit):
         print("None")
     except requests.exceptions.RequestException as e:
         print("None")
+
+
+# Example usage
+if __name__ == "__main__":
+    subreddit_name = input("Enter the subreddit name: ")
+    top_ten(subreddit_name)
