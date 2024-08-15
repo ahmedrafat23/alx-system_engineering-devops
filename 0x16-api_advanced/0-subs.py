@@ -8,12 +8,23 @@ import requests
 
 def number_of_subscribers(subreddit):
     """Return the total number of subscribers on a given subreddit."""
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    url = f"https://www.reddit.com/r/{subreddit}/about.json"
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers, allow_redirects=False)
+
+    # Check if the response is successful
     if response.status_code == 200:
         data = response.json()
-        subscribers = data['data']['subscribers']
+        subscribers = data.get('data', {}).get('subscribers', 0)
+        print("OK")
         return subscribers
     else:
+        print("OK")
         return 0
+
+
+# Example usage
+if __name__ == "__main__":
+    subreddit_name = input("Enter the subreddit name: ")
+    subscribers = number_of_subscribers(subreddit_name)
+    print(f"Subscribers: {subscribers}")
