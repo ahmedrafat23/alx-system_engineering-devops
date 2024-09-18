@@ -1,0 +1,2 @@
+ssh -i ~/.ssh/school ubuntu@<server_ip>
+
